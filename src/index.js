@@ -10,17 +10,15 @@ const Event = event =>
 const click = Event('click');
 const mousemove = Event('mousemove');
 const input = Event('input');
-const change = Event('change');
 
 let intent = DOM => ({
 	mouse: mousemove(DOM.select('.Player')),
 	playToggle: click(DOM.select('.PlayToggle')),
 	seek: input(DOM.select('.Seekbar')).map(e => e.target.value),
-	sought: change(DOM.select('.Seekbar')).map(e => e.target.value),
 	volume: input(DOM.select('.Volume')).map(e => e.target.value)
 })
 
-let model = ({ mouse, playToggle, input, seek, sought }, video) => ({
+let model = ({ mouse, playToggle, input, seek }, video) => ({
 	showBar: $.merge(
 		mouse.map(() => true),
 		mouse.startWith(0).debounce(500).map(() => false)
