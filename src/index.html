@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Video Player</title>
+		<link rel='stylesheet' href='./assets/furtive.css' />
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' />
+		<link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
+		<style>
+			html, body {
+				overflow: hidden;
+			}
+
+			.controls {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 40px;
+				padding: 10px;
+				/*border-top: 2px solid #556;*/
+				background: rgba(60, 60, 70, .8);
+				transition: .5s ease;
+				color: #eef;
+				display: flex;
+				font-family: 'Share Tech Mono';
+			}
+
+			.controls.hidden {
+				opacity: 0;
+			}
+
+			.controls > * {
+				line-height: 20px;
+				font-size: 20px;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+
+			.PlayToggle {
+				flex: none;
+				width: 20px;
+			}
+
+			.Seekbar {
+				flex: 1 1 1;
+			}
+
+			.Seektime {
+				flex: none;
+				font-size: 16px;
+			}
+
+			.Volume {
+				flex: none;
+				width: 50px;
+			}
+
+			.VolumeIndicator {
+				flex: none;
+				width: 20px;
+			}
+
+			input[type=range] {
+				-webkit-appearance: none;
+				background: transparent;
+				box-sizing: content-box;
+				padding: 0;
+				height: 16px;
+				border: 2px solid #112;
+			}
+
+			input[type=range]::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				height: 100%;
+				width: 2px;
+				background: rgba(240, 240, 240, .8);
+				cursor: pointer;
+			}
+
+			input[type=range]::-webkit-slider-runnable-track {
+				cursor: pointer;
+				width: 100%;
+				height: 16px;
+				background: rgba(60, 60, 70, .4);
+			}
+
+			input[type=range]:focus {
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='root'></div>
+		<script>
+			require('babel-register');
+			require('.');
+		</script>
+	</body>
+</html>
