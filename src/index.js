@@ -1,7 +1,7 @@
 import { run } from '@cycle/core';
 import { h, makeDOMDriver } from '@cycle/dom';
 import { Observable as $ } from 'rx';
-import makePlayerDriver from './videodriver';
+import makePlayerDriver from './mediadriver';
 import mediatime from './mediatime';
 
 const Event = event =>
