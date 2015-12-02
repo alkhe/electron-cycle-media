@@ -85,7 +85,6 @@ export default () =>
 			audio: createMediaHelper('audio'),
 			states$: players => $.combineLatest(players.map(player => player.state$)),
 			controls: players => controls => {
-				console.log('4')
 				$.merge(players.map(player => $.combineLatest(player.node$, makeCommand$(controls))))
 			}
 		};
