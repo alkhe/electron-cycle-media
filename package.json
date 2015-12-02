@@ -1,5 +1,5 @@
 {
-  "name": "vplayer",
+  "name": "electron-cycle-media",
   "version": "0.0.1",
   "description": "Video player.",
   "main": "index.js",
