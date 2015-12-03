@@ -4,8 +4,7 @@ import { Observable as $ } from 'rx';
 import makeMediaDriver from './mediadriver';
 import mediatime from './mediatime';
 
-const Event = event =>
-	el => el.events(event);
+const Event = event => el => el.events(event);
 
 const click = Event('click');
 const mousemove = Event('mousemove');
@@ -13,7 +12,7 @@ const input = Event('input');
 
 const intent = DOM => ({
 	mouse: mousemove(DOM.select('.Player')),
-	playToggle: click(DOM.select('.PlayToggle')),
+	playToggle: click(DOM.select('.PlayToggle')).merge(click(DOM.select('.Video'))),
 	seek: input(DOM.select('.Seekbar')).map(e => e.target.value),
 	volume: input(DOM.select('.Volume')).map(e => e.target.value)
 });
@@ -45,7 +44,7 @@ const view = ({ showBar, playing, duration, position, volume, video }) =>
 	);
 
 run(({ DOM, Player }) => {
-	let video = Player.video('#video', { src: './assets/wat.mp4' });
+	let video = Player.video('.Video', { src: './assets/wat.mp4' });
 	let actions = intent(DOM);
 	let data = model(actions, video);
 
